@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="htmlRoot">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,7 +36,6 @@
   h1,h2,h3{ font-family:'Space Grotesk', sans-serif; }
   a{ -webkit-tap-highlight-color: transparent; }
 
-  /* ---------- NAV ---------- */
   nav{
     position:sticky; top:0; z-index:20;
     background:rgba(11,12,15,0.92); backdrop-filter:blur(8px);
@@ -47,16 +46,21 @@
   .brand{ font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:17px; letter-spacing:.02em; }
   .brand span{ color:var(--gold); }
   .nav-links{ display:flex; align-items:center; }
-  .nav-links a{ color:var(--muted); text-decoration:none; font-size:14px; margin-left:24px; transition:color .15s; }
+  .nav-links a{ color:var(--muted); text-decoration:none; font-size:14px; margin-left:22px; transition:color .15s; }
   .nav-links a:hover{ color:var(--text); }
-  .nav-cta{ margin-left:24px; padding:8px 18px; }
+  .nav-cta{ margin-left:22px; padding:8px 18px; }
 
-  .burger{
-    display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px;
+  .lang-btn{
+    background:transparent; border:1px solid var(--panel-edge); color:var(--text);
+    font-size:15px; width:34px; height:34px; border-radius:50%; cursor:pointer;
+    margin-left:22px; display:flex; align-items:center; justify-content:center;
+    transition:border-color .15s; padding:0;
   }
-  .burger span{ width:22px; height:2px; background:var(--text); display:block; transition:.2s; }
+  .lang-btn:hover{ border-color:var(--gold-dim); }
 
-  /* ---------- HERO ---------- */
+  .burger{ display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px; }
+  .burger span{ width:22px; height:2px; background:var(--text); display:block; }
+
   .hero{ max-width:var(--maxw); margin:0 auto; padding:80px 24px 60px; text-align:center; }
   .eyebrow{ font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:18px; }
   .hero h1{ font-size:clamp(28px, 6vw, 48px); font-weight:700; line-height:1.15; margin-bottom:20px; }
@@ -64,26 +68,20 @@
   .hero p{ color:var(--muted); font-size:clamp(15px, 3vw, 17px); max-width:560px; margin:0 auto 32px; }
 
   .cta-row{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
-  .btn{ display:inline-block; padding:13px 28px; border-radius:2px; font-size:14px; font-weight:600; text-decoration:none; transition:transform .15s, opacity .15s; white-space:nowrap; }
+  .btn{ display:inline-block; padding:13px 28px; border-radius:2px; font-size:14px; font-weight:600; text-decoration:none; transition:transform .15s; white-space:nowrap; }
   .btn:hover{ transform:translateY(-1px); }
   .btn-primary{ background:var(--gold); color:#0b0c0f; }
   .btn-secondary{ background:transparent; color:var(--text); border:1px solid var(--panel-edge); }
 
-  /* ---------- SECTIONS ---------- */
   section{ max-width:var(--maxw); margin:0 auto; padding:60px 20px; border-top:1px solid var(--panel-edge); }
   section h2{ font-size:clamp(22px, 4vw, 26px); margin-bottom:8px; }
   .section-sub{ color:var(--muted); font-size:14px; margin-bottom:32px; }
 
-  /* ---------- KEY NUMBERS STRIP ---------- */
-  .key-numbers{
-    display:grid; grid-template-columns:repeat(4, 1fr); gap:1px;
-    background:var(--panel-edge); border:1px solid var(--panel-edge); border-radius:2px; overflow:hidden;
-  }
+  .key-numbers{ display:grid; grid-template-columns:repeat(4, 1fr); gap:1px; background:var(--panel-edge); border:1px solid var(--panel-edge); border-radius:2px; overflow:hidden; }
   .key-number{ background:var(--bg-alt); padding:18px 12px; text-align:center; }
   .key-number .val{ font-family:'JetBrains Mono', monospace; font-size:clamp(15px,3vw,19px); font-weight:700; color:var(--gold-bright); }
   .key-number .lbl{ font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; margin-top:5px; }
 
-  /* ---------- STATS ---------- */
   .stats-frame{ background:var(--panel); border:1px solid var(--panel-edge); border-left:3px solid var(--gold); border-radius:2px; padding:24px; }
   .stats-updated{ font-size:12px; color:var(--muted); margin-bottom:20px; display:flex; align-items:center; gap:8px; }
   .dot{ width:7px; height:7px; border-radius:50%; background:var(--green); display:inline-block; flex-shrink:0; }
@@ -102,29 +100,22 @@
   .period-table td.pos{ color:var(--green); }
   .stats-note{ font-size:12px; color:var(--muted); margin-top:16px; }
 
-  /* ---------- LEVERAGE CALLOUT ---------- */
-  .callout{
-    display:flex; gap:14px; background:var(--bg-alt); border:1px solid var(--panel-edge);
-    border-left:3px solid var(--gold); border-radius:2px; padding:20px;
-  }
+  .callout{ display:flex; gap:14px; background:var(--bg-alt); border:1px solid var(--panel-edge); border-left:3px solid var(--gold); border-radius:2px; padding:20px; }
   .callout .icon{ font-size:20px; flex-shrink:0; }
   .callout h4{ font-size:14px; margin-bottom:4px; }
   .callout p{ color:var(--muted); font-size:13px; }
 
-  /* ---------- HOW IT WORKS ---------- */
   .principle{ display:flex; gap:16px; padding:18px 0; border-bottom:1px solid var(--panel-edge); }
   .principle:last-child{ border-bottom:none; }
   .principle .num{ font-family:'JetBrains Mono', monospace; color:var(--gold-dim); font-size:13px; min-width:26px; flex-shrink:0; }
   .principle h3{ font-size:15px; margin-bottom:5px; }
   .principle p{ color:var(--muted); font-size:13.5px; }
 
-  /* ---------- TRUST GRID ---------- */
   .trust-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
   .trust-item{ background:var(--bg-alt); border:1px solid var(--panel-edge); border-radius:2px; padding:16px; font-size:13px; }
   .trust-item .x{ color:var(--red); font-weight:700; margin-right:6px; }
   .trust-item .check{ color:var(--green); font-weight:700; margin-right:6px; }
 
-  /* ---------- FAQ ---------- */
   details{ border-bottom:1px solid var(--panel-edge); padding:16px 0; }
   summary{ cursor:pointer; font-weight:600; font-size:14.5px; list-style:none; display:flex; justify-content:space-between; align-items:center; gap:12px; }
   summary::-webkit-details-marker{ display:none; }
@@ -132,25 +123,14 @@
   details[open] summary::after{ content:'–'; }
   details p{ color:var(--muted); font-size:13.5px; margin-top:12px; }
 
-  /* ---------- CONTACT ---------- */
-  .contact-block{
-    background:var(--panel); border:1px solid var(--panel-edge); border-left:3px solid var(--gold); border-radius:2px;
-    padding:36px 24px; display:flex; flex-direction:column; gap:14px; align-items:flex-start;
-  }
+  .contact-block{ background:var(--panel); border:1px solid var(--panel-edge); border-left:3px solid var(--gold); border-radius:2px; padding:36px 24px; display:flex; flex-direction:column; gap:14px; align-items:flex-start; }
 
-  /* ---------- RISK BOX ---------- */
   .risk-box{ background:var(--bg-alt); border:1px solid var(--panel-edge); border-left:3px solid var(--red); border-radius:2px; padding:20px; font-size:12.5px; color:var(--muted); }
   .risk-box strong{ color:var(--text); }
 
-  /* ---------- FOOTER ---------- */
-  footer{
-    max-width:var(--maxw); margin:0 auto; padding:36px 20px 50px;
-    display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px;
-    color:var(--muted); font-size:13px;
-  }
+  footer{ max-width:var(--maxw); margin:0 auto; padding:36px 20px 50px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; color:var(--muted); font-size:13px; }
   footer a{ color:var(--gold-dim); text-decoration:none; }
 
-  /* ================= MOBILE ================= */
   @media (max-width: 720px){
     .burger{ display:flex; }
     .nav-links{
@@ -161,7 +141,7 @@
     }
     .nav-links.open{ transform:translateX(0); }
     .nav-links a{ margin:0; padding:14px 0; font-size:17px; width:100%; border-bottom:1px solid var(--panel-edge); }
-    .nav-cta{ margin-top:14px; text-align:center; }
+    .nav-cta, .lang-btn{ margin-top:14px; margin-left:0; width:100%; justify-content:center; text-align:center; }
 
     .key-numbers{ grid-template-columns:repeat(2, 1fr); }
     .trust-grid{ grid-template-columns:1fr; }
@@ -176,180 +156,180 @@
   <div class="brand">MIDAS <span>GOLD</span></div>
   <button class="burger" id="burgerBtn" aria-label="Menu"><span></span><span></span><span></span></button>
   <div class="nav-links" id="navLinks">
-    <a href="#stats">Stats</a>
-    <a href="#how-it-works">How it works</a>
-    <a href="#trust">Our approach</a>
-    <a href="#faq">FAQ</a>
-    <a href="#get-started">Get started</a>
-    <a href="https://t.me/midasBotSupport" class="btn btn-primary nav-cta">Contact</a>
+    <a href="#stats" data-i18n="nav-stats">Stats</a>
+    <a href="#how-it-works" data-i18n="nav-how">How it works</a>
+    <a href="#trust" data-i18n="nav-trust">Our approach</a>
+    <a href="#faq" data-i18n="nav-faq">FAQ</a>
+    <a href="#get-started" data-i18n="nav-start">Get started</a>
+    <button class="lang-btn" id="langBtn"><span id="langFlag"></span></button>
+    <a href="https://t.me/midasBotSupport" class="btn btn-primary nav-cta" data-i18n="nav-contact">Contact</a>
   </div>
 </nav>
 
 <div class="hero">
-  <div class="eyebrow">XAUUSD · Systematic Trading · Copy Trading</div>
-  <h1>Risk management before <em>profit promises</em></h1>
-  <p>Midas Gold is an algorithmic trading system on gold (XAUUSD), run with systematic discipline and full transparency about what works and what doesn't.</p>
+  <div class="eyebrow" data-i18n="hero-eyebrow">XAUUSD · Systematic Trading · Copy Trading</div>
+  <h1 data-i18n="hero-h1">Risk management before <em>profit promises</em></h1>
+  <p data-i18n="hero-p">Midas Gold is an algorithmic trading system on gold (XAUUSD), run with systematic discipline and full transparency about what works and what doesn't.</p>
   <div class="cta-row">
-    <a href="#get-started" class="btn btn-primary">How to start copying</a>
-    <a href="#stats" class="btn btn-secondary">See the stats</a>
+    <a href="#get-started" class="btn btn-primary" data-i18n="hero-cta1">How to start copying</a>
+    <a href="#stats" class="btn btn-secondary" data-i18n="hero-cta2">See the stats</a>
   </div>
 </div>
 
 <section>
   <div class="key-numbers">
-    <div class="key-number"><div class="val">1000:1</div><div class="lbl">Min. Leverage</div></div>
-    <div class="key-number"><div class="val">25%</div><div class="lbl">Performance Fee</div></div>
-    <div class="key-number"><div class="val">XAUUSD</div><div class="lbl">Instrument</div></div>
-    <div class="key-number"><div class="val">May '26</div><div class="lbl">Live Since</div></div>
+    <div class="key-number"><div class="val">1000:1</div><div class="lbl" data-i18n="key-lev">Min. Leverage</div></div>
+    <div class="key-number"><div class="val">25%</div><div class="lbl" data-i18n="key-fee">Performance Fee</div></div>
+    <div class="key-number"><div class="val">XAUUSD</div><div class="lbl" data-i18n="key-instr">Instrument</div></div>
+    <div class="key-number"><div class="val" data-i18n="key-live-val">May '26</div><div class="lbl" data-i18n="key-live">Live Since</div></div>
   </div>
 </section>
 
 <section id="stats">
-  <h2>Performance stats</h2>
-  <p class="section-sub">Pulled from the Myfxbook-verified account and updated by hand every week — not a live feed, so treat the date below as the freshness marker.</p>
+  <h2 data-i18n="stats-h2">Performance stats</h2>
+  <p class="section-sub" data-i18n="stats-sub">Pulled from the Myfxbook-verified account and updated by hand every week — not a live feed, so treat the date below as the freshness marker.</p>
 
-  <!-- WEEKLY UPDATE: edit the numbers below by hand each week, and update the date in .stats-updated. Source: your Myfxbook account overview. -->
+  <!-- WEEKLY UPDATE: edit the numbers below by hand each week (both langs share the same numeric spans), and update the date text in both dictionary entries (stats-updated-en / stats-updated-es) below in the script. -->
   <div class="stats-frame">
-    <div class="stats-updated"><span class="dot"></span>Last updated: July 4, 2026</div>
+    <div class="stats-updated"><span class="dot"></span><span data-i18n="stats-updated">Last updated: July 4, 2026</span></div>
 
     <div class="quick-stats">
-      <div class="quick-stat"><div class="val pos">+196.43%</div><div class="lbl">Total Growth</div></div>
-      <div class="quick-stat"><div class="val pos">€900.24</div><div class="lbl">Profit</div></div>
-      <div class="quick-stat"><div class="val">€1,000.00</div><div class="lbl">Balance</div></div>
-      <div class="quick-stat"><div class="val">34.25%</div><div class="lbl">Max Drawdown</div></div>
-      <div class="quick-stat"><div class="val pos">+114.72%</div><div class="lbl">Monthly</div></div>
-      <div class="quick-stat"><div class="val">1,420</div><div class="lbl">Trades (YTD)</div></div>
+      <div class="quick-stat"><div class="val pos">+196.43%</div><div class="lbl" data-i18n="qs-growth">Total Growth</div></div>
+      <div class="quick-stat"><div class="val pos">€900.24</div><div class="lbl" data-i18n="qs-profit">Profit</div></div>
+      <div class="quick-stat"><div class="val">€1,000.00</div><div class="lbl" data-i18n="qs-balance">Balance</div></div>
+      <div class="quick-stat"><div class="val">34.25%</div><div class="lbl" data-i18n="qs-dd">Max Drawdown</div></div>
+      <div class="quick-stat"><div class="val pos">+114.72%</div><div class="lbl" data-i18n="qs-monthly">Monthly</div></div>
+      <div class="quick-stat"><div class="val">1,420</div><div class="lbl" data-i18n="qs-trades">Trades (YTD)</div></div>
     </div>
 
     <div class="table-scroll">
       <table class="period-table">
         <thead>
-          <tr><th>Period</th><th>Growth</th><th>Profit</th><th>Win rate</th><th>Trades</th><th>Lots</th></tr>
+          <tr>
+            <th data-i18n="th-period">Period</th><th data-i18n="th-growth">Growth</th><th data-i18n="th-profit">Profit</th>
+            <th data-i18n="th-winrate">Win rate</th><th data-i18n="th-trades">Trades</th><th data-i18n="th-lots">Lots</th>
+          </tr>
         </thead>
         <tbody>
-          <tr><td>This week</td><td class="pos">+9.33%</td><td class="pos">€87.92</td><td>84%</td><td>173</td><td>1.73</td></tr>
-          <tr><td>This month</td><td class="pos">+1.92%</td><td class="pos">€16.43</td><td>79%</td><td>58</td><td>0.58</td></tr>
-          <tr><td>This year</td><td class="pos">+196.44%</td><td class="pos">€900.24</td><td>88%</td><td>1,420</td><td>14.20</td></tr>
+          <tr><td data-i18n="row-week">This week</td><td class="pos">+9.33%</td><td class="pos">€87.92</td><td>84%</td><td>173</td><td>1.73</td></tr>
+          <tr><td data-i18n="row-month">This month</td><td class="pos">+1.92%</td><td class="pos">€16.43</td><td>79%</td><td>58</td><td>0.58</td></tr>
+          <tr><td data-i18n="row-year">This year</td><td class="pos">+196.44%</td><td class="pos">€900.24</td><td>88%</td><td>1,420</td><td>14.20</td></tr>
         </tbody>
       </table>
     </div>
   </div>
-  <p class="stats-note">Active since May 21, 2026 · Starting capital: €1,000 · Verified by Myfxbook.</p>
+  <p class="stats-note" data-i18n="stats-note">Active since May 21, 2026 · Starting capital: €1,000 · Verified by Myfxbook.</p>
 </section>
 
 <section id="how-it-works">
-  <h2>How it works</h2>
-  <p class="section-sub">Without revealing the exact mechanics (that protects both the strategy and the copiers themselves), here's what you can know:</p>
+  <h2 data-i18n="how-h2">How it works</h2>
+  <p class="section-sub" data-i18n="how-sub">Without revealing the exact mechanics (that protects both the strategy and the copiers themselves), here's what you can know:</p>
 
-  <div class="principle"><div class="num mono">01</div><div><h3>Systematic, not discretionary</h3><p>Every trade follows fixed, tested rules. No emotional decisions and no manual intervention while a trade is developing.</p></div></div>
-  <div class="principle"><div class="num mono">02</div><div><h3>Fixed lot size, no martingale</h3><p>Position size is never increased to "recover" previous losses. Risk per trade is constant and known in advance.</p></div></div>
-  <div class="principle"><div class="num mono">03</div><div><h3>Capped exposure</h3><p>Position accumulation has a fixed ceiling — exposure never grows without limit, no matter how far the market moves.</p></div></div>
-  <div class="principle"><div class="num mono">04</div><div><h3>News awareness</h3><p>The system adjusts its behavior around major economic releases rather than trading blindly through them.</p></div></div>
-  <div class="principle"><div class="num mono">05</div><div><h3>Risk management over raw returns</h3><p>We'd rather sit out a week than force trades in conditions that don't warrant it.</p></div></div>
+  <div class="principle"><div class="num mono">01</div><div><h3 data-i18n="p1-t">Systematic, not discretionary</h3><p data-i18n="p1-d">Every trade follows fixed, tested rules. No emotional decisions and no manual intervention while a trade is developing.</p></div></div>
+  <div class="principle"><div class="num mono">02</div><div><h3 data-i18n="p2-t">Fixed lot size, no martingale</h3><p data-i18n="p2-d">Position size is never increased to "recover" previous losses. Risk per trade is constant and known in advance.</p></div></div>
+  <div class="principle"><div class="num mono">03</div><div><h3 data-i18n="p3-t">Capped exposure</h3><p data-i18n="p3-d">Position accumulation has a fixed ceiling — exposure never grows without limit, no matter how far the market moves.</p></div></div>
+  <div class="principle"><div class="num mono">04</div><div><h3 data-i18n="p4-t">News awareness</h3><p data-i18n="p4-d">The system adjusts its behavior around major economic releases rather than trading blindly through them.</p></div></div>
+  <div class="principle"><div class="num mono">05</div><div><h3 data-i18n="p5-t">Risk management over raw returns</h3><p data-i18n="p5-d">We'd rather sit out a week than force trades in conditions that don't warrant it.</p></div></div>
 
   <div class="callout" style="margin-top:24px;">
     <div class="icon">⚠️</div>
     <div>
-      <h4>Leverage is not optional</h4>
-      <p>1000:1 minimum is the single most important setting before you connect. At lower leverage, the same market move this system is built to withstand can trigger a real margin call before the trade has a chance to play out — this isn't a suggestion, it's the difference between a normal drawdown and a blown account.</p>
+      <h4 data-i18n="callout-t">Leverage is not optional</h4>
+      <p data-i18n="callout-d">1000:1 minimum is the single most important setting before you connect. At lower leverage, the same market move this system is built to withstand can trigger a real margin call before the trade has a chance to play out — this isn't a suggestion, it's the difference between a normal drawdown and a blown account.</p>
     </div>
   </div>
 </section>
 
 <section id="trust">
-  <h2>Our approach</h2>
-  <p class="section-sub">What we do differently, stated plainly rather than implied.</p>
+  <h2 data-i18n="trust-h2">Our approach</h2>
+  <p class="section-sub" data-i18n="trust-sub">What we do differently, stated plainly rather than implied.</p>
 
   <div class="trust-grid">
-    <div class="trust-item"><span class="check">✓</span>One account, one system, one real track record</div>
-    <div class="trust-item"><span class="check">✓</span>Drawdown reported both as balance and intraday floating</div>
-    <div class="trust-item"><span class="check">✓</span>No trading during drawdown events — the system runs itself</div>
-    <div class="trust-item"><span class="check">✓</span>Fees only on realized profit, never on capital</div>
-    <div class="trust-item"><span class="check">✗</span>No guaranteed returns, ever</div>
-    <div class="trust-item"><span class="check">✗</span>No pressure to add capital during a losing streak</div>
-    <div class="trust-item"><span class="check">✗</span>No cherry-picked results hiding the hard weeks</div>
-    <div class="trust-item"><span class="check">✗</span>No martingale, no revenge trading, no discretionary overrides</div>
+    <div class="trust-item"><span class="check">✓</span><span data-i18n="t1">One account, one system, one real track record</span></div>
+    <div class="trust-item"><span class="check">✓</span><span data-i18n="t2">Drawdown reported both as balance and intraday floating</span></div>
+    <div class="trust-item"><span class="check">✓</span><span data-i18n="t3">No trading during drawdown events — the system runs itself</span></div>
+    <div class="trust-item"><span class="check">✓</span><span data-i18n="t4">Fees only on realized profit, never on capital</span></div>
+    <div class="trust-item"><span class="x">✗</span><span data-i18n="t5">No guaranteed returns, ever</span></div>
+    <div class="trust-item"><span class="x">✗</span><span data-i18n="t6">No pressure to add capital during a losing streak</span></div>
+    <div class="trust-item"><span class="x">✗</span><span data-i18n="t7">No cherry-picked results hiding the hard weeks</span></div>
+    <div class="trust-item"><span class="x">✗</span><span data-i18n="t8">No martingale, no revenge trading, no discretionary overrides</span></div>
   </div>
 </section>
 
 <section id="faq">
-  <h2>Frequently asked questions</h2>
-  <p class="section-sub">What most people ask before they start copying.</p>
+  <h2 data-i18n="faq-h2">Frequently asked questions</h2>
+  <p class="section-sub" data-i18n="faq-sub">What most people ask before they start copying.</p>
 
   <details>
-    <summary>What do I need to copy Midas Gold?</summary>
-    <p>An Axi account connected to the Pelican Trading marketplace, where you can subscribe directly to the signal. The sign-up process is the standard one for any copy trading setup on Axi.</p>
+    <summary data-i18n="faq1-q">What do I need to copy Midas Gold?</summary>
+    <p data-i18n="faq1-a">An Axi account connected to the Pelican Trading marketplace, where you can subscribe directly to the signal. The sign-up process is the standard one for any copy trading setup on Axi.</p>
   </details>
 
   <details>
-    <summary>What leverage do I need?</summary>
-    <p>1000:1 is the recommended minimum, no exceptions. With lower leverage (500:1 or below), the same market move the system is designed to withstand can trigger a real margin call before the trade plays out as intended.</p>
+    <summary data-i18n="faq2-q">What leverage do I need?</summary>
+    <p data-i18n="faq2-a">1000:1 is the recommended minimum, no exceptions. With lower leverage (500:1 or below), the same market move the system is designed to withstand can trigger a real margin call before the trade plays out as intended.</p>
   </details>
 
   <details>
-    <summary>What's the fee?</summary>
-    <p>25% performance fee — charged only on real profits, never on capital and never as a flat fee.</p>
+    <summary data-i18n="faq3-q">What's the fee?</summary>
+    <p data-i18n="faq3-a">25% performance fee — charged only on real profits, never on capital and never as a flat fee.</p>
   </details>
 
   <details>
-    <summary>What was the biggest drawdown?</summary>
-    <p>The toughest event so far was late June / early July 2026, with a sustained gold sell-off that produced significant negative floating P&L over several hours before reversing. The system wasn't manually touched and the trade closed positive. That intraday floating figure was considerably higher than the balance-based drawdown shown in the headline stats -- they're two different metrics, and we think you deserve to know both, not just the one that looks better.</p>
+    <summary data-i18n="faq4-q">What was the biggest drawdown?</summary>
+    <p data-i18n="faq4-a">The toughest event so far was late June / early July 2026, with a sustained gold sell-off that produced significant negative floating P&L over several hours before reversing. The system wasn't manually touched and the trade closed positive. That intraday floating figure was considerably higher than the balance-based drawdown shown in the headline stats -- they're two different metrics, and we think you deserve to know both, not just the one that looks better.</p>
   </details>
 
   <details>
-    <summary>Does the system use a Stop Loss?</summary>
-    <p>Not on individual trades -- risk is managed at the basket level, with dynamic close targets. That's intentional within the system's logic, not an oversight.</p>
+    <summary data-i18n="faq5-q">Does the system use a Stop Loss?</summary>
+    <p data-i18n="faq5-a">Not on individual trades -- risk is managed at the basket level, with dynamic close targets. That's intentional within the system's logic, not an oversight.</p>
   </details>
 
   <details>
-    <summary>What minimum capital do you recommend?</summary>
-    <p>More important than capital itself is leverage (see above). Accounts with very tight capital, even at the recommended minimum leverage, can still come under pressure during extreme volatility events like the one mentioned above. As a rough reference, the live track record above runs on €1,000 starting capital.</p>
+    <summary data-i18n="faq6-q">What minimum capital do you recommend?</summary>
+    <p data-i18n="faq6-a">More important than capital itself is leverage (see above). Accounts with very tight capital, even at the recommended minimum leverage, can still come under pressure during extreme volatility events like the one mentioned above. As a rough reference, the live track record above runs on €1,000 starting capital.</p>
   </details>
 
   <details>
-    <summary>What broker and platform do I need?</summary>
-    <p>Axi, via the Pelican Trading copy-trading marketplace. The signal is not distributed through any other broker or platform — be wary of anyone offering "Midas Gold" access elsewhere.</p>
+    <summary data-i18n="faq7-q">What broker and platform do I need?</summary>
+    <p data-i18n="faq7-a">Axi, via the Pelican Trading copy-trading marketplace. The signal is not distributed through any other broker or platform — be wary of anyone offering "Midas Gold" access elsewhere.</p>
   </details>
 
   <details>
-    <summary>Can I stop copying at any time?</summary>
-    <p>Yes. Copy trading subscriptions on Axi/Pelican can be paused or cancelled at any time from your own account — there's no lock-in period.</p>
+    <summary data-i18n="faq8-q">Can I stop copying at any time?</summary>
+    <p data-i18n="faq8-a">Yes. Copy trading subscriptions on Axi/Pelican can be paused or cancelled at any time from your own account — there's no lock-in period.</p>
   </details>
 
   <details>
-    <summary>Where can I ask questions or follow day-to-day activity?</summary>
-    <p>On the Telegram channel <a href="https://t.me/midasbotgold" style="color:var(--gold-dim);">@midasbotgold</a>, where we share updates, results, and market context with the same transparency as here.</p>
+    <summary data-i18n="faq9-q">Where can I ask questions or follow day-to-day activity?</summary>
+    <p data-i18n="faq9-a">On the Telegram channel <a href="https://t.me/midasbotgold" style="color:var(--gold-dim);">@midasbotgold</a>, where we share updates, results, and market context with the same transparency as here.</p>
   </details>
 </section>
 
 <section id="contact">
   <div class="contact-block">
-    <h2 style="font-size:20px;">Got a question before you start?</h2>
-    <p style="color:var(--muted); font-size:13.5px; max-width:480px;">
-      If anything above isn't clear, or you want to ask something specific about your situation
-      before connecting your account, reach out directly. We respond on the support channel,
-      kept separate from the general updates channel.
-    </p>
-    <a href="https://t.me/midasBotSupport" class="btn btn-primary">Talk to support</a>
+    <h2 style="font-size:20px;" data-i18n="contact-h2">Got a question before you start?</h2>
+    <p style="color:var(--muted); font-size:13.5px; max-width:480px;" data-i18n="contact-p">If anything above isn't clear, or you want to ask something specific about your situation before connecting your account, reach out directly. We respond on the support channel, kept separate from the general updates channel.</p>
+    <a href="https://t.me/midasBotSupport" class="btn btn-primary" data-i18n="contact-btn">Talk to support</a>
   </div>
 </section>
 
 <section id="get-started">
-  <h2>How to get started</h2>
-  <p class="section-sub">Three steps, no complications.</p>
+  <h2 data-i18n="start-h2">How to get started</h2>
+  <p class="section-sub" data-i18n="start-sub">Three steps, no complications.</p>
 
-  <div class="principle"><div class="num mono">01</div><div><h3>Open an Axi account</h3><p>Use the link below, or go directly to axi.com if you already know the process.</p></div></div>
-  <div class="principle"><div class="num mono">02</div><div><h3>Connect to the Pelican Trading marketplace</h3><p>Search for "Midas Gold" among the available signals.</p></div></div>
-  <div class="principle"><div class="num mono">03</div><div><h3>Set your leverage and subscribe</h3><p>Confirm 1000:1 before activating the copy.</p></div></div>
+  <div class="principle"><div class="num mono">01</div><div><h3 data-i18n="s1-t">Open an Axi account</h3><p data-i18n="s1-d">Use the link below, or go directly to axi.com if you already know the process.</p></div></div>
+  <div class="principle"><div class="num mono">02</div><div><h3 data-i18n="s2-t">Connect to the Pelican Trading marketplace</h3><p data-i18n="s2-d">Search for "Midas Gold" among the available signals.</p></div></div>
+  <div class="principle"><div class="num mono">03</div><div><h3 data-i18n="s3-t">Set your leverage and subscribe</h3><p data-i18n="s3-d">Confirm 1000:1 before activating the copy.</p></div></div>
 
   <div class="cta-row" style="margin-top:24px;">
-    <a href="https://axicom.onelink.me/MfaL/489lzdyf" class="btn btn-primary">Open an Axi account</a>
+    <a href="https://axicom.onelink.me/MfaL/489lzdyf" class="btn btn-primary" data-i18n="start-btn">Open an Axi account</a>
   </div>
 </section>
 
 <section>
   <div class="risk-box">
-    <strong>Risk warning:</strong> leveraged trading carries a significant risk of loss and may not be suitable for all investors. Past performance does not guarantee future results. Never invest capital you cannot afford to lose.
+    <strong data-i18n="risk-label">Risk warning:</strong> <span data-i18n="risk-text">leveraged trading carries a significant risk of loss and may not be suitable for all investors. Past performance does not guarantee future results. Never invest capital you cannot afford to lose.</span>
   </div>
 </section>
 
@@ -357,12 +337,164 @@
   <div>© 2026 Midas Gold</div>
   <div>
     <a href="https://t.me/midasbotgold">Telegram</a> ·
-    <a href="https://t.me/midasBotSupport">Support</a> ·
+    <a href="https://t.me/midasBotSupport" data-i18n="footer-support">Support</a> ·
     <a href="https://axicom.onelink.me/MfaL/489lzdyf">Axi</a>
   </div>
 </footer>
 
 <script>
+  var translations = {
+    en: {
+      "nav-stats":"Stats","nav-how":"How it works","nav-trust":"Our approach","nav-faq":"FAQ","nav-start":"Get started","nav-contact":"Contact",
+      "hero-eyebrow":"XAUUSD · Systematic Trading · Copy Trading",
+      "hero-h1":"Risk management before <em>profit promises</em>",
+      "hero-p":"Midas Gold is an algorithmic trading system on gold (XAUUSD), run with systematic discipline and full transparency about what works and what doesn't.",
+      "hero-cta1":"How to start copying","hero-cta2":"See the stats",
+      "key-lev":"Min. Leverage","key-fee":"Performance Fee","key-instr":"Instrument","key-live":"Live Since","key-live-val":"May '26",
+      "stats-h2":"Performance stats",
+      "stats-sub":"Pulled from the Myfxbook-verified account and updated by hand every week — not a live feed, so treat the date below as the freshness marker.",
+      "stats-updated":"Last updated: July 4, 2026",
+      "qs-growth":"Total Growth","qs-profit":"Profit","qs-balance":"Balance","qs-dd":"Max Drawdown","qs-monthly":"Monthly","qs-trades":"Trades (YTD)",
+      "th-period":"Period","th-growth":"Growth","th-profit":"Profit","th-winrate":"Win rate","th-trades":"Trades","th-lots":"Lots",
+      "row-week":"This week","row-month":"This month","row-year":"This year",
+      "stats-note":"Active since May 21, 2026 · Starting capital: €1,000 · Verified by Myfxbook.",
+      "how-h2":"How it works",
+      "how-sub":"Without revealing the exact mechanics (that protects both the strategy and the copiers themselves), here's what you can know:",
+      "p1-t":"Systematic, not discretionary","p1-d":"Every trade follows fixed, tested rules. No emotional decisions and no manual intervention while a trade is developing.",
+      "p2-t":"Fixed lot size, no martingale","p2-d":"Position size is never increased to \"recover\" previous losses. Risk per trade is constant and known in advance.",
+      "p3-t":"Capped exposure","p3-d":"Position accumulation has a fixed ceiling — exposure never grows without limit, no matter how far the market moves.",
+      "p4-t":"News awareness","p4-d":"The system adjusts its behavior around major economic releases rather than trading blindly through them.",
+      "p5-t":"Risk management over raw returns","p5-d":"We'd rather sit out a week than force trades in conditions that don't warrant it.",
+      "callout-t":"Leverage is not optional",
+      "callout-d":"1000:1 minimum is the single most important setting before you connect. At lower leverage, the same market move this system is built to withstand can trigger a real margin call before the trade has a chance to play out — this isn't a suggestion, it's the difference between a normal drawdown and a blown account.",
+      "trust-h2":"Our approach","trust-sub":"What we do differently, stated plainly rather than implied.",
+      "t1":"One account, one system, one real track record",
+      "t2":"Drawdown reported both as balance and intraday floating",
+      "t3":"No trading during drawdown events — the system runs itself",
+      "t4":"Fees only on realized profit, never on capital",
+      "t5":"No guaranteed returns, ever",
+      "t6":"No pressure to add capital during a losing streak",
+      "t7":"No cherry-picked results hiding the hard weeks",
+      "t8":"No martingale, no revenge trading, no discretionary overrides",
+      "faq-h2":"Frequently asked questions","faq-sub":"What most people ask before they start copying.",
+      "faq1-q":"What do I need to copy Midas Gold?",
+      "faq1-a":"An Axi account connected to the Pelican Trading marketplace, where you can subscribe directly to the signal. The sign-up process is the standard one for any copy trading setup on Axi.",
+      "faq2-q":"What leverage do I need?",
+      "faq2-a":"1000:1 is the recommended minimum, no exceptions. With lower leverage (500:1 or below), the same market move the system is designed to withstand can trigger a real margin call before the trade plays out as intended.",
+      "faq3-q":"What's the fee?",
+      "faq3-a":"25% performance fee — charged only on real profits, never on capital and never as a flat fee.",
+      "faq4-q":"What was the biggest drawdown?",
+      "faq4-a":"The toughest event so far was late June / early July 2026, with a sustained gold sell-off that produced significant negative floating P&L over several hours before reversing. The system wasn't manually touched and the trade closed positive. That intraday floating figure was considerably higher than the balance-based drawdown shown in the headline stats -- they're two different metrics, and we think you deserve to know both, not just the one that looks better.",
+      "faq5-q":"Does the system use a Stop Loss?",
+      "faq5-a":"Not on individual trades -- risk is managed at the basket level, with dynamic close targets. That's intentional within the system's logic, not an oversight.",
+      "faq6-q":"What minimum capital do you recommend?",
+      "faq6-a":"More important than capital itself is leverage (see above). Accounts with very tight capital, even at the recommended minimum leverage, can still come under pressure during extreme volatility events like the one mentioned above. As a rough reference, the live track record above runs on €1,000 starting capital.",
+      "faq7-q":"What broker and platform do I need?",
+      "faq7-a":"Axi, via the Pelican Trading copy-trading marketplace. The signal is not distributed through any other broker or platform — be wary of anyone offering \"Midas Gold\" access elsewhere.",
+      "faq8-q":"Can I stop copying at any time?",
+      "faq8-a":"Yes. Copy trading subscriptions on Axi/Pelican can be paused or cancelled at any time from your own account — there's no lock-in period.",
+      "faq9-q":"Where can I ask questions or follow day-to-day activity?",
+      "faq9-a":"On the Telegram channel <a href=\"https://t.me/midasbotgold\" style=\"color:var(--gold-dim);\">@midasbotgold</a>, where we share updates, results, and market context with the same transparency as here.",
+      "contact-h2":"Got a question before you start?",
+      "contact-p":"If anything above isn't clear, or you want to ask something specific about your situation before connecting your account, reach out directly. We respond on the support channel, kept separate from the general updates channel.",
+      "contact-btn":"Talk to support",
+      "start-h2":"How to get started","start-sub":"Three steps, no complications.",
+      "s1-t":"Open an Axi account","s1-d":"Use the link below, or go directly to axi.com if you already know the process.",
+      "s2-t":"Connect to the Pelican Trading marketplace","s2-d":"Search for \"Midas Gold\" among the available signals.",
+      "s3-t":"Set your leverage and subscribe","s3-d":"Confirm 1000:1 before activating the copy.",
+      "start-btn":"Open an Axi account",
+      "risk-label":"Risk warning:",
+      "risk-text":"leveraged trading carries a significant risk of loss and may not be suitable for all investors. Past performance does not guarantee future results. Never invest capital you cannot afford to lose.",
+      "footer-support":"Support"
+    },
+    es: {
+      "nav-stats":"Estadísticas","nav-how":"Cómo funciona","nav-trust":"Nuestro enfoque","nav-faq":"FAQ","nav-start":"Empezar","nav-contact":"Contacto",
+      "hero-eyebrow":"XAUUSD · Trading sistemático · Copy trading",
+      "hero-h1":"Gestión de riesgo antes que <em>promesas de rentabilidad</em>",
+      "hero-p":"Midas Gold es un sistema de trading algorítmico sobre oro (XAUUSD), operado con disciplina sistemática y total transparencia sobre lo que funciona y lo que no.",
+      "hero-cta1":"Cómo empezar a copiar","hero-cta2":"Ver estadísticas",
+      "key-lev":"Apalanc. mín.","key-fee":"Comisión","key-instr":"Instrumento","key-live":"Activo desde","key-live-val":"May '26",
+      "stats-h2":"Estadísticas de rendimiento",
+      "stats-sub":"Extraídas de la cuenta verificada en Myfxbook y actualizadas a mano cada semana — no es un feed en vivo, así que toma la fecha de abajo como referencia de actualización.",
+      "stats-updated":"Última actualización: 4 de julio de 2026",
+      "qs-growth":"Crecimiento total","qs-profit":"Beneficio","qs-balance":"Balance","qs-dd":"Drawdown máx.","qs-monthly":"Mensual","qs-trades":"Operaciones (año)",
+      "th-period":"Periodo","th-growth":"Crecimiento","th-profit":"Beneficio","th-winrate":"% acierto","th-trades":"Operaciones","th-lots":"Lotes",
+      "row-week":"Esta semana","row-month":"Este mes","row-year":"Este año",
+      "stats-note":"Activo desde el 21 de mayo de 2026 · Capital inicial: 1.000€ · Verificado por Myfxbook.",
+      "how-h2":"Cómo funciona",
+      "how-sub":"Sin revelar la mecánica exacta (eso protege tanto la estrategia como a los propios copiadores), esto es lo que sí puedes saber:",
+      "p1-t":"Sistemático, no discrecional","p1-d":"Cada operación sigue reglas fijas y probadas. No hay decisiones emocionales ni intervención manual mientras una operación se desarrolla.",
+      "p2-t":"Lotaje fijo, sin martingala","p2-d":"El tamaño de cada posición nunca aumenta para \"recuperar\" pérdidas anteriores. El riesgo por operación es constante y conocido de antemano.",
+      "p3-t":"Exposición limitada","p3-d":"La acumulación de posiciones tiene un techo fijo — la exposición nunca crece sin límite, por lejos que se mueva el mercado.",
+      "p4-t":"Atención a las noticias","p4-d":"El sistema ajusta su comportamiento en torno a publicaciones económicas importantes en vez de operar a ciegas durante ellas.",
+      "p5-t":"Gestión de riesgo por encima de la rentabilidad","p5-d":"Preferimos una semana sin operar a forzar operativa en condiciones que no lo justifican.",
+      "callout-t":"El apalancamiento no es opcional",
+      "callout-d":"1000:1 mínimo es el ajuste más importante antes de conectar tu cuenta. Con menor apalancamiento, el mismo movimiento de mercado que este sistema está diseñado para aguantar puede generar un margin call real antes de que la operación tenga ocasión de desarrollarse — no es una sugerencia, es la diferencia entre un drawdown normal y una cuenta reventada.",
+      "trust-h2":"Nuestro enfoque","trust-sub":"Lo que hacemos diferente, dicho claramente en vez de insinuado.",
+      "t1":"Una cuenta, un sistema, un track record real",
+      "t2":"Drawdown reportado tanto en balance como en flotante intradía",
+      "t3":"Sin intervención durante los drawdowns — el sistema se gestiona solo",
+      "t4":"Comisión solo sobre beneficio realizado, nunca sobre el capital",
+      "t5":"Sin rentabilidades garantizadas, nunca",
+      "t6":"Sin presión para meter capital durante una racha negativa",
+      "t7":"Sin resultados seleccionados que escondan las semanas duras",
+      "t8":"Sin martingala, sin trading de venganza, sin intervención discrecional",
+      "faq-h2":"Preguntas frecuentes","faq-sub":"Lo que la mayoría pregunta antes de empezar a copiar.",
+      "faq1-q":"¿Qué necesito para copiar Midas Gold?",
+      "faq1-a":"Una cuenta en Axi conectada al marketplace de Pelican Trading, desde donde puedes suscribirte directamente a la señal. El proceso de alta es el estándar de cualquier copy trading en Axi.",
+      "faq2-q":"¿Qué apalancamiento necesito?",
+      "faq2-a":"1000:1 es el mínimo recomendado, sin excepciones. Con menor apalancamiento (500:1 o inferior), el mismo movimiento de mercado que el sistema está diseñado para aguantar puede generarte un margin call real antes de que la operación se desarrolle como está previsto.",
+      "faq3-q":"¿Cuál es la comisión?",
+      "faq3-a":"25% de comisión sobre beneficios — solo se cobra sobre ganancias reales, nunca sobre el capital ni de forma fija.",
+      "faq4-q":"¿Cuál ha sido el mayor drawdown?",
+      "faq4-a":"El evento más exigente hasta la fecha fue a finales de junio / principios de julio de 2026, con una caída sostenida del oro que generó flotante negativo significativo durante varias horas antes de revertir. El sistema no fue intervenido manualmente y la operación cerró en positivo. Esa cifra de flotante intradía fue considerablemente mayor que el drawdown de balance mostrado en las estadísticas -- son dos métricas distintas, y creemos que mereces conocer ambas, no solo la que queda mejor.",
+      "faq5-q":"¿El sistema usa Stop Loss?",
+      "faq5-a":"No a nivel de operación individual -- la gestión de riesgo se aplica a nivel de conjunto (basket), con objetivos de cierre dinámicos. Es intencional dentro de la lógica del sistema, no una omisión.",
+      "faq6-q":"¿Cuánto capital mínimo recomendáis?",
+      "faq6-a":"Más importante que el capital en sí es el apalancamiento (ver arriba). Cuentas muy ajustadas de capital, incluso con el apalancamiento mínimo recomendado, pueden sufrir presión en eventos de volatilidad extrema como el mencionado arriba. Como referencia, el track record en vivo de arriba corre sobre 1.000€ de capital inicial.",
+      "faq7-q":"¿Qué bróker y plataforma necesito?",
+      "faq7-a":"Axi, a través del marketplace de copy trading de Pelican Trading. La señal no se distribuye por ningún otro bróker o plataforma — desconfía de quien ofrezca acceso a \"Midas Gold\" en otro sitio.",
+      "faq8-q":"¿Puedo dejar de copiar en cualquier momento?",
+      "faq8-a":"Sí. Las suscripciones de copy trading en Axi/Pelican se pueden pausar o cancelar en cualquier momento desde tu propia cuenta — no hay periodo de permanencia.",
+      "faq9-q":"¿Dónde puedo hacer preguntas o seguir la operativa día a día?",
+      "faq9-a":"En el canal de Telegram <a href=\"https://t.me/midasbotgold\" style=\"color:var(--gold-dim);\">@midasbotgold</a>, donde compartimos actualizaciones, resultados y contexto de mercado con la misma transparencia que aquí.",
+      "contact-h2":"¿Tienes alguna duda antes de empezar?",
+      "contact-p":"Si algo de lo anterior no te queda claro, o quieres preguntar algo específico sobre tu situación antes de conectar tu cuenta, escríbenos directamente. Respondemos en el canal de soporte, separado del canal general de actualizaciones.",
+      "contact-btn":"Hablar con soporte",
+      "start-h2":"Cómo empezar","start-sub":"Tres pasos, sin complicaciones.",
+      "s1-t":"Abre una cuenta en Axi","s1-d":"Usa el enlace de abajo, o entra directamente en axi.com si ya conoces el proceso.",
+      "s2-t":"Conéctate al marketplace de Pelican Trading","s2-d":"Busca \"Midas Gold\" entre las señales disponibles.",
+      "s3-t":"Configura tu apalancamiento y suscríbete","s3-d":"Confirma 1000:1 antes de activar la copia.",
+      "start-btn":"Abrir cuenta en Axi",
+      "risk-label":"Aviso de riesgo:",
+      "risk-text":"el trading con apalancamiento conlleva un riesgo significativo de pérdida y puede no ser adecuado para todos los inversores. Los resultados pasados no garantizan rendimientos futuros. Nunca inviertas capital que no puedas permitirte perder.",
+      "footer-support":"Soporte"
+    }
+  };
+
+  var flagES = '<svg width="20" height="14" viewBox="0 0 20 14" style="border-radius:2px;"><rect width="20" height="14" fill="%23AA151B"/><rect y="3.5" width="20" height="7" fill="%23F1BF00"/></svg>'.replace(/%23/g,'#');
+  var flagGB = '<svg width="20" height="14" viewBox="0 0 20 14" style="border-radius:2px;"><rect width="20" height="14" fill="%23012169"/><path d="M0,0 L20,14 M20,0 L0,14" stroke="%23fff" stroke-width="2.4"/><path d="M0,0 L20,14 M20,0 L0,14" stroke="%23C8102E" stroke-width="1.2"/><path d="M10,0 V14 M0,7 H20" stroke="%23fff" stroke-width="4"/><path d="M10,0 V14 M0,7 H20" stroke="%23C8102E" stroke-width="2.2"/></svg>'.replace(/%23/g,'#');
+
+  function applyLanguage(lang){
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      if(translations[lang][key] !== undefined){
+        el.innerHTML = translations[lang][key];
+      }
+    });
+    document.getElementById('htmlRoot').setAttribute('lang', lang);
+    document.getElementById('langFlag').innerHTML = lang === 'en' ? flagES : flagGB;
+    localStorage.setItem('midasgold_lang', lang);
+  }
+
+  var currentLang = localStorage.getItem('midasgold_lang') || 'en';
+  applyLanguage(currentLang);
+
+  document.getElementById('langBtn').addEventListener('click', function(){
+    currentLang = currentLang === 'en' ? 'es' : 'en';
+    applyLanguage(currentLang);
+  });
+
   var burger = document.getElementById('burgerBtn');
   var links = document.getElementById('navLinks');
   burger.addEventListener('click', function(){ links.classList.toggle('open'); });
